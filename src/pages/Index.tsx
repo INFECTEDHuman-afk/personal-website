@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -15,8 +14,6 @@ import Testimonials from '@/components/Testimonials';
 import ResumeCTA from '@/components/ResumeCTA';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-
-// We no longer need to import ScrollReveal separately since we're using it as a wrapper component
 
 const Index = () => {
   // Set page title
@@ -106,7 +103,7 @@ const Index = () => {
   }, []);
 
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
+    <>
       <Header />
       <main>
         <Hero />
@@ -123,7 +120,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
-    </ThemeProvider>
+    </>
   );
 };
 
