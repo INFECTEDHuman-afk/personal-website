@@ -1,13 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Skills from '@/components/Skills';
+import Experience from '@/components/Experience';
+import Projects from '@/components/Projects';
+import Teaching from '@/components/Teaching';
+import OpenSource from '@/components/OpenSource';
+import Education from '@/components/Education';
+import Blog from '@/components/Blog';
+import Testimonials from '@/components/Testimonials';
+import ResumeCTA from '@/components/ResumeCTA';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+import ScrollReveal from '@/components/ScrollReveal';
 
 const Index = () => {
+  // Set page title
+  useEffect(() => {
+    document.title = "John Doe | Full-Stack & AI Engineer";
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <ThemeProvider defaultTheme="light" attribute="class">
+      <ScrollReveal />
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Teaching />
+        <OpenSource />
+        <Education />
+        <Blog />
+        <Testimonials />
+        <ResumeCTA />
+        <Contact />
+      </main>
+      <Footer />
+    </ThemeProvider>
   );
 };
 
