@@ -1,5 +1,5 @@
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -48,18 +48,16 @@ const Testimonials = () => {
     },
   ];
   
-  const onCarouselChange = useCallback((api) => {
+  const handleCarouselChange = (api) => {
     if (!api) return;
     
-    const onSelect = () => {
-      setActiveIndex(api.selectedScrollSnap());
-    };
+    setActiveIndex(api.selectedScrollSnap());
     
-    api.on("select", onSelect);
-    return () => {
-      api.off("select", onSelect);
-    };
-  }, []);
+    // Set up the event listener for future changes
+    api.on("select", () => {
+      setActiveIndex(api.selectedScrollSnap());
+    });
+  };
 
   return (
     <section id="testimonials" className="bg-background relative overflow-hidden py-24 md:py-32">
@@ -86,7 +84,7 @@ const Testimonials = () => {
                 loop: true, 
                 align: isMobile ? "start" : "center" 
               }}
-              onApiChange={onCarouselChange}
+              setApi={handleCarouselChange}
               className="w-full"
             >
               <CarouselContent>
