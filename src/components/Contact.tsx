@@ -27,19 +27,19 @@ const Contact = () => {
   const socialLinks = [
     {
       name: "Email",
-      href: "mailto:contact@example.com",
+      href: "mailto:csah@usc.edu",
       icon: Mail,
       color: "hover:text-primary",
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/chetan-sah-024469114/",
       icon: Linkedin,
       color: "hover:text-blue-600",
     },
     {
       name: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/INFECTEDHuman-afk",
       icon: Github,
       color: "hover:text-gray-900 dark:hover:text-white",
     },
