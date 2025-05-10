@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -50,65 +49,38 @@ const Experience = () => {
           </p>
         </div>
         
-        <div className="relative">
+        <div className="space-y-12 relative">
           {/* Timeline line */}
-          <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-border md:left-1/2 md:-ml-0.5" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -ml-0.5 hidden md:block" />
           
           {/* Timeline items */}
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div key={exp.title + exp.company} className="relative reveal">
-                {/* Timeline dot */}
-                <div
-                  className={cn(
-                    "absolute left-6 w-3 h-3 rounded-full border-2 md:left-1/2 md:-ml-1.5 z-10",
-                    exp.isCurrent
-                      ? "bg-primary border-primary"
-                      : "bg-background border-muted-foreground/50"
-                  )}
-                  style={{ top: "1.625rem" }}
-                />
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Left column (date for even items on desktop) */}
-                  <div className={cn(
-                    "md:text-right md:pr-10",
-                    index % 2 === 1 ? "md:order-1" : "md:order-none"
-                  )}>
-                    {index % 2 === 0 && (
-                      <div className="hidden md:block">
+          {experiences.map((exp, index) => (
+            <div key={exp.title + exp.company} className="relative reveal">
+              <div className={cn(
+                "grid grid-cols-1 md:grid-cols-2 gap-8 items-center",
+              )}>
+                {/* Left side (even indexes) */}
+                {index % 2 === 0 ? (
+                  <>
+                    <div className="md:pr-12">
+                      <div className="bg-card rounded-lg p-6 shadow-sm border relative">
+                        {/* Timeline dot */}
+                        <div className={cn(
+                          "hidden md:block absolute top-1/2 -right-4 w-4 h-4 rounded-full border-4",
+                          exp.isCurrent 
+                            ? "bg-primary border-primary/30" 
+                            : "bg-background border-border"
+                        )} />
+                        
                         <h3 className="text-xl font-bold">{exp.title}</h3>
-                        <p className="text-primary font-medium">{exp.company}</p>
-                        <p className="text-muted-foreground mt-1">{exp.description}</p>
-                        <div className="flex flex-wrap gap-2 mt-4 md:justify-end">
-                          {exp.skills.map((skill) => (
-                            <Badge key={skill} variant="secondary" className="bg-secondary/10">
-                              {skill}
-                            </Badge>
-                          ))}
+                        <p className="text-primary font-medium mt-1">{exp.company}</p>
+                        <div className="flex items-center mt-2 mb-4">
+                          <span className="text-muted-foreground">{exp.period}</span>
+                          {exp.isCurrent && (
+                            <Badge className="ml-2 bg-primary/10 text-primary">Current</Badge>
+                          )}
                         </div>
-                      </div>
-                    )}
-                    {index % 2 === 1 && (
-                      <div className="pl-12 md:pl-0">
-                        <span className="text-lg font-medium">{exp.period}</span>
-                        {exp.isCurrent && (
-                          <Badge className="ml-2 bg-primary/10 text-primary hover:bg-primary/20">Current</Badge>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* Right column */}
-                  <div className={cn(
-                    "pl-12 md:pl-10",
-                    index % 2 === 1 ? "md:order-none" : "md:order-1"
-                  )}>
-                    {index % 2 === 1 && (
-                      <div className="md:block">
-                        <h3 className="text-xl font-bold">{exp.title}</h3>
-                        <p className="text-primary font-medium">{exp.company}</p>
-                        <p className="text-muted-foreground mt-1">{exp.description}</p>
+                        <p className="text-muted-foreground">{exp.description}</p>
                         <div className="flex flex-wrap gap-2 mt-4">
                           {exp.skills.map((skill) => (
                             <Badge key={skill} variant="secondary" className="bg-secondary/10">
@@ -117,32 +89,53 @@ const Experience = () => {
                           ))}
                         </div>
                       </div>
-                    )}
-                    {index % 2 === 0 && (
-                      <div>
-                        <span className="text-lg font-medium">{exp.period}</span>
-                        {exp.isCurrent && (
-                          <Badge className="ml-2 bg-primary/10 text-primary hover:bg-primary/20">Current</Badge>
-                        )}
-                        <div className="md:hidden mt-4">
-                          <h3 className="text-xl font-bold">{exp.title}</h3>
-                          <p className="text-primary font-medium">{exp.company}</p>
-                          <p className="text-muted-foreground mt-1">{exp.description}</p>
-                          <div className="flex flex-wrap gap-2 mt-4">
-                            {exp.skills.map((skill) => (
-                              <Badge key={skill} variant="secondary" className="bg-secondary/10">
-                                {skill}
-                              </Badge>
-                            ))}
-                          </div>
+                    </div>
+                    <div className="hidden md:block" /> {/* Empty right side */}
+                  </>
+                ) : (
+                  <>
+                    <div className="hidden md:block" /> {/* Empty left side */}
+                    <div className="md:pl-12">
+                      <div className="bg-card rounded-lg p-6 shadow-sm border relative">
+                        {/* Timeline dot */}
+                        <div className={cn(
+                          "hidden md:block absolute top-1/2 -left-4 w-4 h-4 rounded-full border-4",
+                          exp.isCurrent 
+                            ? "bg-primary border-primary/30" 
+                            : "bg-background border-border"
+                        )} />
+                        
+                        <h3 className="text-xl font-bold">{exp.title}</h3>
+                        <p className="text-primary font-medium mt-1">{exp.company}</p>
+                        <div className="flex items-center mt-2 mb-4">
+                          <span className="text-muted-foreground">{exp.period}</span>
+                          {exp.isCurrent && (
+                            <Badge className="ml-2 bg-primary/10 text-primary">Current</Badge>
+                          )}
+                        </div>
+                        <p className="text-muted-foreground">{exp.description}</p>
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {exp.skills.map((skill) => (
+                            <Badge key={skill} variant="secondary" className="bg-secondary/10">
+                              {skill}
+                            </Badge>
+                          ))}
                         </div>
                       </div>
-                    )}
-                  </div>
-                </div>
+                    </div>
+                  </>
+                )}
               </div>
-            ))}
-          </div>
+              
+              {/* Mobile timeline dots */}
+              <div className={cn(
+                "absolute left-6 top-6 w-3 h-3 rounded-full border-2 md:hidden",
+                exp.isCurrent 
+                  ? "bg-primary border-primary/30" 
+                  : "bg-background border-border"
+              )} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
