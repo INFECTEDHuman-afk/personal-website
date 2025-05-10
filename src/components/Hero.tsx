@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Sparkle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ScrollReveal from "./ScrollReveal";
+import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -14,6 +15,8 @@ const Hero = () => {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
+
+  const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
 
   return (
     <section
@@ -75,9 +78,12 @@ const Hero = () => {
                 <div className="absolute inset-4 bg-card rounded-full border shadow-xl backdrop-blur-md border-white/10 dark:border-white/5" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="animated-gradient w-24 h-24 rounded-full flex items-center justify-center backdrop-blur-sm shadow-[0_0_15px_rgba(139,92,246,0.5)]">
-                    <code className="text-3xl md:text-4xl font-bold font-mono text-white">
-                      {"</>"}
-                    </code>
+                    <div className="h-24 w-24 overflow-hidden">
+                      <InteractiveRobotSpline
+                        scene={ROBOT_SCENE_URL}
+                        className="w-full h-full"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
