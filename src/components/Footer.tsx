@@ -67,7 +67,7 @@ const Footer = () => {
         
         <div className="border-t border-border/50 mt-10 pt-10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} John Doe. All rights reserved.
+            &copy; {currentYear} Chetan Sah. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground mt-4 md:mt-0 flex items-center">
             Designed with <Sparkle className="h-4 w-4 text-red-500 mx-1" /> using React & Tailwind CSS
