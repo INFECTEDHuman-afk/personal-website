@@ -7,46 +7,64 @@ const Education = () => {
   const educations = [
     {
       degree: "Master of Science in Computer Science",
-      institution: "Stanford University",
-      period: "2013 - 2015",
-      description: "Specialized in Machine Learning and Artificial Intelligence. Thesis on 'Neural Networks for Natural Language Understanding'.",
+      institution: "University of Southern California",
+      period: "2023 - 2025",
+      description: "Specialized in Machine Learning, Artificial Intelligence, Analysis of Algorithms, Natural Language Processing, Web Technologies, Data Management, and Information Retrieval.",
       achievements: [
-        "Published 2 research papers in leading AI conferences",
-        "Teaching Assistant for Advanced Algorithms course",
-        "Graduate Student Research Award recipient"
+        "Capstone projects included an AlphaGo-inspired reinforcement-learning agent ",
+        "Teaching Assistant at Various STEM related courses",
+        "SmartSolve, a DaSLAM-powered LLM research system for solving complex domain-adaptive problems."
       ],
     },
     {
-      degree: "Bachelor of Science in Computer Engineering",
-      institution: "University of California, Berkeley",
-      period: "2009 - 2013",
-      description: "Double major in Computer Engineering and Mathematics with honors.",
+      degree: "Bachelor of Science in Computer Science",
+      institution: "SRM Institute of Science and Technology",
+      period: "2019 - 2023",
+      description: " Major in Computer Engineering with a specialization in Artificial Intelligence and Machine Learning.",
       achievements: [
-        "Summa Cum Laude - top 3% of graduating class",
+        "Dean's Merit Scholarship",
         "Led student robotics team to regional championship",
-        "Undergraduate research in distributed systems"
+        "Undergraduate research in Object Recognition and Computer Vision, authored two research papers and published them in IEEE journals"
       ],
     },
   ];
   
   const certifications = [
     {
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
+      name: "Azure Cloud Fundamentals",
+      issuer: "Microsoft Azure",
       date: "2022",
-      logo: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png",
+      logo: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
     },
     {
-      name: "TensorFlow Developer Certificate",
-      issuer: "Google",
-      date: "2021",
-      logo: "https://www.tensorflow.org/site-assets/images/marketing/cert-badge.png",
+      name: "Deep Learning Specialization",
+      issuer: "DeepLearning.AI",
+      date: "2022",
+      logo: "https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg",
     },
     {
-      name: "Professional Scrum Master I",
-      issuer: "Scrum.org",
-      date: "2020",
-      logo: "https://static.scrum.org/web/badges/badge-psmi.svg",
+      name: "Machine Learning Specialization",
+      issuer: "Coursera",
+      date: "2022",
+      logo: "https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg",
+    },
+    {
+      name: "Full Stack Developer Certification",
+      issuer: "GUVI, Indian Institute of Technology, Madras",
+      date: "2022",
+      logo: "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg",
+    },
+    {
+      name: "SQL Certification",
+      issuer: "University of California, Davis",
+      date: "2022",
+      logo: "https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg",
+    },
+    {
+      name: "Pyton For Data Science",
+      issuer: "IBM",
+      date: "2022",
+      logo: "https://www.vectorlogo.zone/logos/ibm/ibm-icon.svg",
     },
   ];
 
