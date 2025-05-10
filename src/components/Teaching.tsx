@@ -12,13 +12,13 @@ import { Badge } from "@/components/ui/badge";
 const Teaching = () => {
   const teachingExperiences = [
     {
-      id: "usc-mentorship",
+      id: "Teaching Assistant",
       title: "USC Computer Science Mentor",
-      period: "2021 - Present",
+      period: "2024 - Present",
       description:
         "Guide undergraduate students through complex programming concepts and projects. Provide career advice and industry insights based on real-world experience.",
       achievements: [
-        "Mentored 20+ students who secured internships at top tech companies",
+        "Mentored 10+ students through courseworks and provided additional resources",
         "Developed supplementary learning materials for algorithms and data structures",
         "Organized mock technical interviews to prepare students for job applications",
       ],
@@ -27,7 +27,7 @@ const Teaching = () => {
     {
       id: "curriculum-development",
       title: "AI Curriculum Developer",
-      period: "2020 - 2022",
+      period: "2024 - 2025",
       description:
         "Designed and developed comprehensive curriculum for introductory machine learning and AI courses. Created practical exercises that bridge theoretical concepts with real-world applications.",
       achievements: [
@@ -40,7 +40,7 @@ const Teaching = () => {
     {
       id: "code-workshops",
       title: "Community Code Workshops",
-      period: "2019 - Present",
+      period: "2024 - 2025",
       description:
         "Lead free monthly workshops teaching programming fundamentals to underrepresented groups in tech. Focus on practical skills and project-based learning to build confidence and portfolios.",
       achievements: [
@@ -53,7 +53,7 @@ const Teaching = () => {
     {
       id: "drone-lessons",
       title: "Co-Instructor: Drones & AI",
-      period: "2022",
+      period: "2023-2024",
       description:
         "Co-taught a specialized course on programming autonomous drones using computer vision and machine learning algorithms. Combined theoretical knowledge with hands-on flying sessions.",
       achievements: [
