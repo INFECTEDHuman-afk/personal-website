@@ -12,9 +12,16 @@ const ResumeCTA = () => {
           Download my full resume to see my complete experience, skills, 
           and qualifications in detail.
         </p>
-        <Button size="lg" variant="secondary" className="group">
-          <Download className="mr-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
-          Download Resume (PDF)
+        <Button size="lg" variant="secondary" className="group" asChild>
+          <a
+            href="https://drive.google.com/file/d/1AVLTExTfJURmnSIJ9lTBM4loXJUspx9G/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+          >
+            <Download className="mr-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
+            Download Resume (PDF)
+          </a>
         </Button>
       </div>
     </section>
