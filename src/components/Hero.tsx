@@ -1,7 +1,6 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Sparkle } from "lucide-react";
+import { ChevronDown, Sparkle, Code } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ScrollReveal from "./ScrollReveal";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
@@ -16,6 +15,7 @@ const Hero = () => {
     }
   };
 
+  // If the Spline scene fails to load, we'll use a fallback URL or a local component
   const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
 
   return (
@@ -78,7 +78,7 @@ const Hero = () => {
                 <div className="absolute inset-4 bg-card rounded-full border shadow-xl backdrop-blur-md border-white/10 dark:border-white/5" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="animated-gradient w-24 h-24 rounded-full flex items-center justify-center backdrop-blur-sm shadow-[0_0_15px_rgba(139,92,246,0.5)]">
-                    <div className="h-24 w-24 overflow-hidden">
+                    <div className="h-24 w-24 overflow-hidden flex items-center justify-center">
                       <InteractiveRobotSpline
                         scene={ROBOT_SCENE_URL}
                         className="w-full h-full"
