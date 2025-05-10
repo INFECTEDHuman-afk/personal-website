@@ -18,7 +18,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   // Set page title
   useEffect(() => {
-    document.title = "John Doe | Full-Stack & AI Engineer";
+    document.title = "Chetan Sah | Full-Stack & AI Engineer";
     
     // Add cursor effect
     const createCursorEffect = () => {
