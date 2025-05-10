@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Sparkle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ScrollReveal from "./ScrollReveal";
-import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
+import { IconCloud } from "@/components/ui/interactive-icon-cloud";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -16,8 +16,35 @@ const Hero = () => {
     }
   };
 
-  // If the Spline scene fails to load, we'll use a fallback URL or a local component
-  const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
+  // Tech stack icon slugs for the icon cloud
+  const techStackIcons = [
+    "typescript",
+    "javascript",
+    "react",
+    "html5",
+    "css3",
+    "nodejs",
+    "express",
+    "nextdotjs",
+    "tailwindcss",
+    "postgresql",
+    "firebase",
+    "vercel",
+    "jest",
+    "git",
+    "github",
+    "visualstudiocode",
+    "mongodb",
+    "graphql",
+    "redux",
+    "docker",
+    "aws",
+    "figma",
+    "sass",
+    "webpack",
+    "babel",
+    "styledcomponents",
+  ];
 
   return (
     <section
@@ -74,11 +101,14 @@ const Hero = () => {
           
           <div className="md:col-span-5 flex justify-center md:justify-end">
             <ScrollReveal direction="right" delay={600}>
-              <div className="w-full h-96">
-                <InteractiveRobotSpline
-                  scene={ROBOT_SCENE_URL}
-                  className="w-full h-full"
-                />
+              <div className="w-full h-96 relative">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/20 via-secondary/20 to-accent/20 opacity-30 blur-xl" />
+                <div className="relative w-full h-full z-10">
+                  <IconCloud 
+                    iconSlugs={techStackIcons}
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
             </ScrollReveal>
           </div>
