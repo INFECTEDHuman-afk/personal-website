@@ -4,12 +4,17 @@
 import { Suspense, lazy, useState, useEffect } from 'react';
 import { Code } from "lucide-react";
 
+// Import React explicitly for the error boundary
+import React from 'react';
+
 // Use dynamic import with error handling
 const Spline = lazy(() => 
   import('@splinetool/react-spline')
     .catch(() => {
       // Return a simple component when import fails
-      return { default: () => <FallbackComponent /> };
+      return { 
+        default: () => <FallbackComponent /> 
+      };
     })
 );
 
@@ -32,7 +37,7 @@ export function InteractiveRobotSpline({ scene, className }: InteractiveRobotSpl
   useEffect(() => {
     const timeout = setTimeout(() => {
       // Check if Spline is loaded within a reasonable time
-      if (!window.spline) {
+      if (typeof window !== 'undefined' && !(window as any).spline) {
         console.log('Spline loading timeout, showing fallback');
         setHasError(true);
       }
@@ -56,33 +61,42 @@ export function InteractiveRobotSpline({ scene, className }: InteractiveRobotSpl
         </div>
       }
     >
-      <ErrorBoundary fallback={<FallbackComponent />}>
+      <ErrorBoundaryComponent fallback={<FallbackComponent />}>
         <Spline
           scene={scene}
           className={className}
           onError={() => setHasError(true)}
         />
-      </ErrorBoundary>
+      </ErrorBoundaryComponent>
     </Suspense>
   );
 }
 
-// Simple React error boundary component
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+// Simple React error boundary component with proper TypeScript interface
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+  fallback: React.ReactNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
+class ErrorBoundaryComponent extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
     console.error("Spline component error:", error, errorInfo);
   }
 
-  render() {
+  render(): React.ReactNode {
     if (this.state.hasError) {
       return this.props.fallback;
     }
